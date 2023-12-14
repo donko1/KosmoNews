@@ -4,7 +4,8 @@ from django.utils import timezone
 class News(models.Model):
     THEMES = (
         ('theme1', 'Политика'),
-        ("theme2", "Регионы")
+        ("theme2", "Регионы"),
+        ("theme3", "Инвестиции")
     )
 
     date = models.DateTimeField(default=timezone.now)
