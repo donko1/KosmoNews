@@ -3,6 +3,14 @@ from django.http import JsonResponse, HttpResponse
 from .models import News  
 from KosmoNews import logging
 
+def formatNewForDict(New):
+    return {
+        "date": New.date,
+        "title": New.title,
+        "article_text": New.article_text,
+        "theme": New.theme
+    }
+
 def helloWorld(request):
     return HttpResponse("Hello world")
 
@@ -29,3 +37,9 @@ def sorted_investments_news_json_view(request):
     investments_news_list = list(investments_news.values())  
     logging.log(f'"/investments" - {investments_news_list[0]}')
     return JsonResponse(investments_news_list, safe=False)
+
+def detail_news(request, id):
+    news = News.objects.get(pk=id)
+    data = formatNewForDict(news)
+    logging.log(f"News Detail - {data}")
+    return JsonResponse(data, safe=False)
