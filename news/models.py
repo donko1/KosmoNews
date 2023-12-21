@@ -1,13 +1,10 @@
 from django.db import models
 from django.utils import timezone
+from django.conf import settings
 
 class News(models.Model):
-    THEMES = (
-        ('theme1', 'Политика'),
-        ("theme2", "Регионы"),
-        ("theme3", "Инвестиции")
-    )
 
+    THEMES = settings.THEMES
     date = models.DateTimeField(default=timezone.now)
     title = models.CharField(max_length=200)
     article_text = models.TextField()

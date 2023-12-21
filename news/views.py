@@ -2,6 +2,7 @@
 from django.http import JsonResponse, HttpResponse
 from .models import News  
 from KosmoNews import logging
+from django.conf import settings
 
 def formatNewForDict(New):
     return {
@@ -10,6 +11,10 @@ def formatNewForDict(New):
         "article_text": New.article_text,
         "theme": New.theme
     }
+
+def themes(request):
+    themes = settings.THEMES
+    return JsonResponse(themes, safe=False)
 
 def helloWorld(request):
     return HttpResponse("Hello world")
