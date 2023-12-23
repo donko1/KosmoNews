@@ -3,7 +3,7 @@ from django.utils import timezone
 from django.conf import settings
 
 class News(models.Model):
-
+    image = models.ImageField(upload_to='images/', default="none")
     THEMES = settings.THEMES
     date = models.DateTimeField(default=timezone.now)
     title = models.CharField(max_length=200)

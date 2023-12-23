@@ -9,7 +9,8 @@ def formatNewForDict(New):
         "date": New.date,
         "title": New.title,
         "article_text": New.article_text,
-        "theme": New.theme
+        "theme": New.theme,
+        "image": str(New.image)
     }
 
 def themes(request):
