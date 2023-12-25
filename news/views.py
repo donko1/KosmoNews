@@ -1,8 +1,24 @@
 
 from django.http import JsonResponse, HttpResponse
+from django.conf import settings
+from django.db.models import Q
 from .models import News  
 from KosmoNews import logging
-from django.conf import settings
+from nltk.stem import WordNetLemmatizer
+from nltk.tokenize import word_tokenize
+import re
+
+
+
+def get_root_word(word):
+    lemmatizer = WordNetLemmatizer()
+    # токенизировать и лемматизировать слово
+    tokens = word_tokenize(word)
+    root_words = [lemmatizer.lemmatize(token) for token in tokens]
+    # объединить результат обратно в строку
+    root_word = ' '.join(root_words)
+    return root_word
+
 
 def formatNewForDict(New):
     return {
@@ -19,6 +35,14 @@ def themes(request):
 
 def helloWorld(request):
     return HttpResponse("Hello world")
+
+def search_word(request, word):
+    root_word = get_root_word(word).lower()
+    all_news = News.objects.all()
+    filtered_news = [obj for obj in all_news if root_word in obj.title.lower() or root_word in obj.article_text.lower()]
+    filtered_news = sorted(filtered_news, key=lambda obj: obj.date, reverse=True)
+    filtered_news = [formatNewForDict(obj) for obj in list(filtered_news)]
+    return JsonResponse(filtered_news, safe=False)
 
 def sorted_news_json_view(request):
     all_news = News.objects.all().order_by('-date')  
