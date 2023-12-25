@@ -7,7 +7,8 @@ from .views import (
     sorted_investments_news_json_view,
     detail_news,
     themes,
-    search_word
+    search_word,
+    news_of_the_day
     )
 
 urlpatterns = [
@@ -17,5 +18,6 @@ urlpatterns = [
     path("investments/", sorted_investments_news_json_view),
     path("<int:id>/", detail_news),
     path("themes/", themes),
-    path("search/<str:word>", search_word)
+    path("search/<str:word>/", search_word),
+    path("day/", news_of_the_day)
 ]

@@ -73,3 +73,8 @@ def detail_news(request, id):
     data = formatNewForDict(news)
     logging.log(f"News Detail - {data}")
     return JsonResponse(data, safe=False)
+
+def news_of_the_day(request):
+    news_of_day = News.objects.filter(isNewsOfDay=True).order_by('-date')
+    news_of_day = list(news_of_day.values())
+    return JsonResponse(news_of_day, safe=False)
