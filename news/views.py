@@ -9,7 +9,6 @@ from nltk.tokenize import word_tokenize
 import re
 
 
-
 def get_root_word(word):
     lemmatizer = WordNetLemmatizer()
     # токенизировать и лемматизировать слово

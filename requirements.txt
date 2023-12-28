@@ -1,0 +1,3 @@
+django==2.2.24
+nltk==3.6.7
+corsheaders==3.7.0
