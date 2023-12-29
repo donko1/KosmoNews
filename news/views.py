@@ -8,13 +8,10 @@ from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
 import re
 
-
 def get_root_word(word):
     lemmatizer = WordNetLemmatizer()
-    # токенизировать и лемматизировать слово
     tokens = word_tokenize(word)
     root_words = [lemmatizer.lemmatize(token) for token in tokens]
-    # объединить результат обратно в строку
     root_word = ' '.join(root_words)
     return root_word
 

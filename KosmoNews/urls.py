@@ -19,6 +19,14 @@ from django.urls import path, include, re_path
 from django.views.generic import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
+from django.shortcuts import render
+from django.conf.urls import handler404
+
+def error_404_view(request, exception):
+    return render(request, '404.html', status=404)
+
+
+handler404 = error_404_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
