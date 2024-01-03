@@ -12,4 +12,12 @@ class News(models.Model):
     theme = models.CharField(max_length=50, choices=THEMES, default='')
 
     def __str__(self):
-        return self.title
+        return f"Title: {self.title}, Date: {self.date}"
+
+    def short_description(self):
+        max_length = 100
+        if len(self.article_text) > max_length:
+            return self.article_text[:max_length] + "..."
+        else:
+            return self.article_text
+            
