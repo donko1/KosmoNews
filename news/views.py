@@ -22,6 +22,7 @@ def formatNewForDict(New):
         "title": New.title,
         "article_text": New.article_text,
         "theme": New.theme,
+        "id":New.pk,
         "image": str(New.image)
     }
 
