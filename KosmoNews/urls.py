@@ -32,6 +32,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("api/", include("news.urls")),
     path("aboutUs/", TemplateView.as_view(template_name="index.html")),
+    path("confidenc/", TemplateView.as_view(template_name="index.html")),
     path("contact/", TemplateView.as_view(template_name="index.html")),
     path(r'', TemplateView.as_view(template_name="index.html")),
     re_path(r'^(?P<number>\d+)/$', TemplateView.as_view(template_name="index.html")),
