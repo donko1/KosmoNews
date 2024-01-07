@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>React App</title>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="{% static 'js/main.0c9483b9.js' %}"></script>
+  <script>
+function processSearchURL() {
+  // Получаем текущий закодированный URL
+  const currentEncodedURL = window.location.pathname;
+
+  // Декодируем значение someWord из URL
+  const decodedURL = decodeURIComponent(currentEncodedURL);
+  const match = decodedURL.match(/\/search\/([^\/]+)/);
+
+  if (match) {
+    const someWord = match[1].toLowerCase();
+    console.log(someWord); // Посмотрим, что у нас получилось
+
+    const h1Elements = document.querySelectorAll('h1');
+    h1Elements.forEach((element) => {
+      const html = element.innerHTML.toLowerCase();
+      const index = html.indexOf(someWord);
+      if (index !== -1) {
+        const part1 = html.slice(0, index);
+        const part2 = html.slice(index + someWord.length);
+        element.innerHTML = `${part1}<p class="marker">${someWord}</p>${part2}`;
+
+         const markerElement = element.querySelector('p.marker');
+      markerElement.style.display = "inline"; // Помещаем в одну строку
+      markerElement.style.margin = "0"; // Убираем внешние отступы
+      }
+    });
+  } else {
+    console.log("someWord не найден в URL");
+  }
+}
+document.addEventListener("DOMContentLoaded", function(event) {
+  // Ждем 500 мс и потом вызываем функцию
+  setTimeout(processSearchURL, 500);
+});
+  </script>
+
+</body>
+</html>
