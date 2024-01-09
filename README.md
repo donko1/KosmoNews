@@ -10,6 +10,7 @@ python
 import nltk
 
 nltk.download('punkt', quiet=True)
+nltk.download("omw-1.4", quiet=True)
 
 quit()
 

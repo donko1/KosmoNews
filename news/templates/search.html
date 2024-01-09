@@ -25,18 +25,20 @@ function processSearchURL() {
     const h1Elements = document.querySelectorAll('h1');
     h1Elements.forEach((element) => {
       const html = element.innerHTML;
+      if (element.querySelector(".marker") === null){
       const htmlLower = html.toLowerCase();
       const index = htmlLower.indexOf(someWord);
+      console.log(html)
       if (index !== -1) {
         const part1 = html.slice(0, index);
         const part2 = html.slice(index + someWord.length);
-        const wordToHtml = html.slice(index, someWord.length)
+        const wordToHtml = html.slice(index, index + someWord.length)
         element.innerHTML = `${part1}<p class="marker">${wordToHtml}</p>${part2}`;
 
          const markerElement = element.querySelector('p.marker');
       markerElement.style.display = "inline"; 
       markerElement.style.margin = "0";      }
-    });
+    }});
   } else {
     console.log("someWord не найден в URL");
   }
