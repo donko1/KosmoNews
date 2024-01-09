@@ -8,7 +8,7 @@
 <body>
   <div id="root"></div>
 
-  <script src="{% static 'js/main.0c9483b9.js' %}"></script>
+  <script src="{% static 'js/main.81eaf753.js' %}"></script>
   <script>
 function processSearchURL() {
   // Получаем текущий закодированный URL
@@ -20,21 +20,22 @@ function processSearchURL() {
 
   if (match) {
     const someWord = match[1].toLowerCase();
-    console.log(someWord); // Посмотрим, что у нас получилось
+    console.log(someWord); 
 
     const h1Elements = document.querySelectorAll('h1');
     h1Elements.forEach((element) => {
-      const html = element.innerHTML.toLowerCase();
-      const index = html.indexOf(someWord);
+      const html = element.innerHTML;
+      const htmlLower = html.toLowerCase();
+      const index = htmlLower.indexOf(someWord);
       if (index !== -1) {
         const part1 = html.slice(0, index);
         const part2 = html.slice(index + someWord.length);
-        element.innerHTML = `${part1}<p class="marker">${someWord}</p>${part2}`;
+        const wordToHtml = html.slice(index, someWord.length)
+        element.innerHTML = `${part1}<p class="marker">${wordToHtml}</p>${part2}`;
 
          const markerElement = element.querySelector('p.marker');
-      markerElement.style.display = "inline"; // Помещаем в одну строку
-      markerElement.style.margin = "0"; // Убираем внешние отступы
-      }
+      markerElement.style.display = "inline"; 
+      markerElement.style.margin = "0";      }
     });
   } else {
     console.log("someWord не найден в URL");

@@ -1,3 +1,4 @@
-django==2.2.24
+django==5.0.1
 nltk==3.6.7
-corsheaders==3.7.0
+django-cors-headers==4.3.1
+Pillow==10.2.0
