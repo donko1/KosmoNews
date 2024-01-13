@@ -8,6 +8,8 @@ class News(models.Model):
     date = models.DateTimeField(default=timezone.now)
     title = models.CharField(max_length=200)
     article_text = models.TextField()
+    article_text_en = models.TextField(default="")
+    title_en = models.TextField(default="", max_length=200)
     isNewsOfDay = models.BooleanField(default=False)
     theme = models.CharField(max_length=50, choices=THEMES, default='')
 
