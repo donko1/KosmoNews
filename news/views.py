@@ -10,7 +10,7 @@ import re
 
 def getLanguage(request):
     arg_value = request.GET.get('lang')
-    return arg_value
+    return arg_value if arg_value not in ["null", None] else ""
 
 def get_root_word(word):
     try:
@@ -43,7 +43,8 @@ def formatNewForDict(New, request):
     }
 
 def themes(request):
-    themes = settings.THEMES
+    lang = getLanguage(request).upper()
+    themes = getattr(settings, f"THEMES{lang}")
     return JsonResponse(themes, safe=False)
 
 def helloWorld(request):
@@ -93,5 +94,5 @@ def detail_news(request, id):
 
 def news_of_the_day(request):
     news_of_day = News.objects.filter(isNewsOfDay=True).order_by('-date')
-    news_of_day = list(news_of_day.values())
-    return JsonResponse(news_of_day, safe=False)
+    data = formatNewForDict(news_of_day[0], request)
+    return JsonResponse(data, safe=False)

@@ -19,6 +19,12 @@ THEMES = (
         ("theme3", "Инвестиции")
     )
 
+THEMES_EN = (
+    ('theme1', 'Politics'),
+    ("theme2", "Regions"),
+    ("theme3", "Invesments")
+)
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
