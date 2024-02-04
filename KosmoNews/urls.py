@@ -36,7 +36,7 @@ urlpatterns = [
     path(r'', TemplateView.as_view(template_name="index.html")),
     re_path(r'^(?P<number>\d+)/$', TemplateView.as_view(template_name="index.html")),
     re_path(r'^(?P<word>\D+)(?P<number>\d+)/$', TemplateView.as_view(template_name="index.html")),
-    re_path(r'^search/(?P<some_word>\w+)/$', TemplateView.as_view(template_name="search.html")),
+    re_path(r'^search/(?P<some_word>\w+)/$', TemplateView.as_view(template_name="index.html")),
 ]
 
 if settings.DEBUG:
