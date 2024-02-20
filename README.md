@@ -5,7 +5,7 @@ requires:
 - git
 - python 3.11
 ```bash
-git clone git@github.com:donko1/KosmoNews.git
+git clone https://github.com/donko1/KosmoNews.git
 ```
 ```bash
 cd KosmoNews
@@ -30,7 +30,7 @@ requires:
 - git
 - python 3.11
 ```bash
-git clone git@github.com:donko1/KosmoNews.git
+git clone https://github.com/donko1/KosmoNews.git
 ```
 ```bash
 cd KosmoNews
