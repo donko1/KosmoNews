@@ -2,8 +2,10 @@
 ## Instruction for insalling
 ### Linux:
 requires: 
-- git
-- python 3.11
+- [git](https://git-scm.com/download/linux)
+- [python 3.11](https://www.scaler.com/topics/python/install-python-on-linux/)
+
+Open terminal. Paste these commands:
 ```bash
 git clone https://github.com/donko1/KosmoNews.git
 ```
@@ -28,8 +30,11 @@ cp exampleDB/db.sqlite3 .
 ``` 
 ### Windows:
 requires:
-- git
-- python 3.11
+- [git](https://git-scm.com/download/win)
+- [python 3.11](https://python.org)
+
+
+Open terminal(<kbd>WIN</kbd> + <kbd>R</kbd>. In window paste `cmd` and press <kbd>ENTER</kbd>). Paste these commands:
 ```bash
 git clone https://github.com/donko1/KosmoNews.git
 ```
