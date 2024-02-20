@@ -11,9 +11,6 @@ git clone https://github.com/donko1/KosmoNews.git
 cd KosmoNews
 ```
 ```bash
-cp exampleDB/db.sqlite3 .
-```
-```bash
 python3 -m venv venv
 ```
 ```bash
@@ -25,6 +22,10 @@ pip install -r requirements.txt
 ```bash
 python3 manage.py runserver
 ```
+#### If u want use test DataBase:
+```bash
+cp exampleDB/db.sqlite3 .
+``` 
 ### Windows:
 requires:
 - git
@@ -36,9 +37,6 @@ git clone https://github.com/donko1/KosmoNews.git
 cd KosmoNews
 ```
 ```bash
-copy exampleDB/db.sqlite3 .
-```
-```bash
 python -m venv venv
 ```
 ```bash
@@ -48,5 +46,9 @@ python -m venv venv
 pip install -r requirements.txt
 ```
 ```bash
-python3 manage.py runserver
+python manage.py runserver
+```
+#### If u want use test DataBase:
+```bash
+copy exampleDB/db.sqlite3 .
 ```
